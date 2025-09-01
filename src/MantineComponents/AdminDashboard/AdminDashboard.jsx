@@ -28,6 +28,7 @@ import { notifications } from "@mantine/notifications";
 import { useNavigate } from "react-router-dom";
 import GeneralSetting from "../../pages/GeneralSetting";
 import UserRoleManager from "../../pages/UserRoleManager";
+import Analytics from "../../scene/Analytics";
 
 export default function AdminDashboard({ colorScheme, toggleColorScheme }) {
   const [opened, { toggle }] = useDisclosure();
@@ -48,7 +49,7 @@ export default function AdminDashboard({ colorScheme, toggleColorScheme }) {
       const parsedUser = JSON.parse(storedUser);
       setUser(JSON.parse(storedUser));
     } else {
-      navigate("/sign-up");
+      // navigate("/sign-up");
     }
   }, [navigate]);
 
@@ -240,7 +241,7 @@ export default function AdminDashboard({ colorScheme, toggleColorScheme }) {
 
       <AppShell.Main>
         <Routes>
-          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="dashboard" element={<Analytics />} />
           <Route path="bookings" element={<BookingsAdmin />} />
           <Route path="manage-calendar" element={<CalendarAvailability />} />
           <Route path="events" element={<CalendarTUI />} />

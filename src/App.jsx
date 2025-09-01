@@ -9,14 +9,22 @@ import Home from "./pages/Login/Home";
 import QuotationPage from "./pages/QuotationPage/QuotationPage";
 import AdminDashboard from "./MantineComponents/AdminDashboard/AdminDashboard";
 import HeaderMegaMenu from "./components/HeaderMegaMenu";
+import Analytics from "./scene/Analytics";
 import CalendarAvailability from "./MantineComponents/AdminDashboard/CalendarAvailability";
 import GeneralSetting from "./pages/GeneralSetting";
 import UserRoleManager from "./pages/UserRoleManager";
 import CalendarTUI from "./pages/CalendarTUI";
 import InviteUsers from "./components/InviteUsers";
 
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+
 function App({ colorScheme, toggleColorScheme }) {
+  const [theme, colorMode] = useMode();
   return (
+    <ColorModeContext.Provider value={colorMode}>
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
     <>
       {/* <HeaderMegaMenu></HeaderMegaMenu> */}
       <Routes>
@@ -36,6 +44,7 @@ function App({ colorScheme, toggleColorScheme }) {
           }
         />
         <Route path="general-setting" element={<GeneralSetting />}></Route>
+        <Route path="analytics" element={<Analytics />}></Route>
         <Route
           path="user-role-settings"
           element={<UserRoleManager></UserRoleManager>}
@@ -55,6 +64,8 @@ function App({ colorScheme, toggleColorScheme }) {
         ></Route>
       </Routes>
     </>
+    </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
