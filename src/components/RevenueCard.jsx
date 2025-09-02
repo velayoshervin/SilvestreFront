@@ -18,7 +18,7 @@ const RevenueCard = (bgColor) => {
           alignItems="center"
           justifyContent="center"
     >
-      <Paper elevation={3} sx={{ p: 3, width:'100%' }}>
+      <Paper variant='outlined' elevation={3} sx={{ p: 3, width:'100%' }}>
         <Typography variant="subtitle2" color="text.secondary">
             Revenue
         </Typography>
